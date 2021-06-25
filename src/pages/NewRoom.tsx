@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
+import { Loading } from '../components/Loading';
 import illustrationImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg';
 import logoutImg from '../assets/images/logout.svg';
@@ -35,7 +36,11 @@ export function NewRoom() {
       authorId: user?.id,
     })
 
-    history.push(`/rooms/${firebaseRoom.key}`)
+    history.push(`/admin/rooms/${firebaseRoom.key}`)
+  }
+
+  if(!user){
+    return <Loading/>
   }
 
   return (

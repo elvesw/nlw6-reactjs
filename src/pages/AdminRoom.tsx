@@ -4,28 +4,38 @@ import logoImg from '../assets/images/logo.svg';
 import deleteImg from '../assets/images/delete.svg';
 import checkImg from '../assets/images/check.svg';
 import answerImg from '../assets/images/answer.svg';
-import logoutImg from '../assets/images/logout.svg';
 
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
+import { Loading } from '../components/Loading';
 // import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 
 import '../styles/room.scss';
+import { useEffect } from 'react';
+import { useAuth } from '../hooks/useAuth';
 
 type RoomParams = {
   id: string;
 }
 
 export function AdminRoom() {
-  // const { user } = useAuth();
+   const { user } = useAuth();
   const history = useHistory()
   const params = useParams<RoomParams>();
   const roomId = params.id;
 
-  const { title, questions } = useRoom(roomId)
+  const { title, questions, roomAdminId } = useRoom(roomId);
+
+  useEffect(() => {
+    if(user && roomAdminId){
+      if(user.id!==roomAdminId){
+        history.push(`/`);
+      }
+    }
+    },[history, roomAdminId, user]);
 
   async function handleEndRoom() {
     await database.ref(`rooms/${roomId}`).update({
@@ -53,6 +63,10 @@ export function AdminRoom() {
     })
   }
 
+  if(!user && !roomAdminId){
+    return <Loading/>
+  }
+
   return (
     <div id="page-room">
       <header>
@@ -70,7 +84,6 @@ export function AdminRoom() {
           <h1>Sala {title}</h1>
           { questions.length > 0 && <span>{questions.length} pergunta(s)</span> }
         </div>
-
         <div className="question-list">
           {questions.map(question => {
             return (
