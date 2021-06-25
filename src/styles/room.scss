@@ -17,9 +17,21 @@
       > div {
         display: flex;
         gap: 16px;
+        align-items: center;
 
         button {
           height: 40px;
+        }
+
+        .logout{
+          border: 0;
+          max-height: 32px;
+          background-color: transparent;
+          cursor: pointer;
+  
+          &:hover {
+            filter: brightness(0.7);
+          }
         }
       }
     }

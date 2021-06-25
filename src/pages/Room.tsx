@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom'
 
 import logoImg from '../assets/images/logo.svg';
+import logoutImg from '../assets/images/logout.svg';
 
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
@@ -18,7 +19,7 @@ type RoomParams = {
 }
 
 export function Room() {
-  const { user, signInWithGoogle } = useAuth();
+  const { user, signInWithGoogle, signOutGoogle} = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
@@ -70,7 +71,12 @@ export function Room() {
       <header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
-          <RoomCode code={roomId} />
+          <div>
+            <RoomCode code={roomId} />
+            <button className="logout" type="button" onClick={signOutGoogle}>
+              <img  src={logoutImg} alt="Sair" />
+            </button>
+           </div>
         </div>
       </header>
 

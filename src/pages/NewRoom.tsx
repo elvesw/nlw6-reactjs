@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 
 import illustrationImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg';
+import logoutImg from '../assets/images/logout.svg';
 
 import { Button } from '../components/Button';
 import { database } from '../services/firebase';
@@ -11,7 +12,7 @@ import { useAuth } from '../hooks/useAuth';
 import '../styles/auth.scss';
 
 export function NewRoom() {
-  const { user } = useAuth()
+  const { user,signInWithGoogle,signOutGoogle } = useAuth()
   const history = useHistory()
   const [newRoom, setNewRoom] = useState('');
 
@@ -19,6 +20,11 @@ export function NewRoom() {
     event.preventDefault();
 
     if (newRoom.trim() === '') {
+      return;
+    }
+
+    if (!user) {
+      await signInWithGoogle();
       return;
     }
 
@@ -41,7 +47,21 @@ export function NewRoom() {
       </aside>
       <main>
         <div className="main-content">
-          <img src={logoImg} alt="Letmeask" />
+        <div className="logo-content">
+            <img src={logoImg} alt="Letmeask" />
+            {user?.id && (
+              <>
+                <div className="avatar">
+                  <img src={user?.avatar} alt={user?.name} />
+                  <span>{user?.name}</span>
+                </div>
+              
+                <button className="logout" type="button"  onClick={() => signOutGoogle()} >
+                  <img  src={logoutImg} alt="Sair" />
+                </button>
+              </>
+            )}
+          </div>
           <h2>Criar uma nova sala</h2>
           <form onSubmit={handleCreateRoom}>
             <input 

@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react';
 import illustrationImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
+import logoutImg from '../assets/images/logout.svg';
 
 import { database } from '../services/firebase';
 
@@ -14,7 +15,7 @@ import '../styles/auth.scss';
 
 export function Home() {
   const history = useHistory();
-  const { user, signInWithGoogle } = useAuth()
+  const { user, signInWithGoogle,signOutGoogle } = useAuth()
   const [roomCode, setRoomCode] = useState('');
 
   async function handleCreateRoom() {
@@ -49,6 +50,7 @@ export function Home() {
 
   return (
     <div id="page-auth">
+     
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
@@ -56,7 +58,21 @@ export function Home() {
       </aside>
       <main>
         <div className="main-content">
-          <img src={logoImg} alt="Letmeask" />
+          <div className="logo-content">
+            <img src={logoImg} alt="Letmeask" />
+            {user?.id && (
+              <>
+                <div className="avatar">
+                  <img src={user?.avatar} alt={user?.name} />
+                  <span>{user?.name}</span>
+                </div>
+              
+                <button className="logout" type="button"  onClick={() => signOutGoogle()} >
+                  <img  src={logoutImg} alt="Sair" />
+                </button>
+              </>
+            )}
+          </div>
           <button onClick={handleCreateRoom} className="create-room">
             <img src={googleIconImg} alt="Logo do Google" />
             Crie sua sala com o Google
