@@ -1,21 +1,21 @@
 import { useHistory, useParams } from 'react-router-dom'
 
-import logoImg from '../assets/images/logo.svg';
-import deleteImg from '../assets/images/delete.svg';
-import checkImg from '../assets/images/check.svg';
-import answerImg from '../assets/images/answer.svg';
+import logoImg from '../../../assets/images/logo.svg';
+import deleteImg from '../../../assets/images/delete.svg';
+import checkImg from '../../../assets/images/check.svg';
+import answerImg from '../../../assets/images/answer.svg';
 
-import { Button } from '../components/Button';
-import { Question } from '../components/Question';
-import { RoomCode } from '../components/RoomCode';
-import { Loading } from '../components/Loading';
+import { Button } from '../../../components/Button';
+import { Question } from '../../../components/Question';
+import { RoomCode } from '../../../components/RoomCode';
+import { Loading } from '../../../components/Loading';
 // import { useAuth } from '../hooks/useAuth';
-import { useRoom } from '../hooks/useRoom';
-import { database } from '../services/firebase';
+import { useRoom } from '../../../hooks/useRoom';
+import { database } from '../../../services/firebase';
 
-import '../styles/room.scss';
+import './styles.scss';
 import { useEffect } from 'react';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../../../hooks/useAuth';
 
 type RoomParams = {
   id: string;
@@ -68,7 +68,7 @@ export function AdminRoom() {
   }
 
   return (
-    <div id="page-room">
+    <div id="page-admin">
       <header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />

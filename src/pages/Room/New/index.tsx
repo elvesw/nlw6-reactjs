@@ -1,16 +1,16 @@
 import { FormEvent, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
-import { Loading } from '../components/Loading';
-import illustrationImg from '../assets/images/illustration.svg'
-import logoImg from '../assets/images/logo.svg';
-import logoutImg from '../assets/images/logout.svg';
+import { Loading } from '../../../components/Loading';
+import illustrationImg from '../../../assets/images/illustration.svg'
+import logoImg from '../../../assets/images/logo.svg';
+import logoutImg from '../../../assets/images/logout.svg';
 
-import { Button } from '../components/Button';
-import { database } from '../services/firebase';
-import { useAuth } from '../hooks/useAuth';
+import { Button } from '../../../components/Button';
+import { database } from '../../../services/firebase';
+import { useAuth } from '../../../hooks/useAuth';
 
-import '../styles/auth.scss';
+import './styles.scss';
 
 export function NewRoom() {
   const { user,signInWithGoogle,signOutGoogle } = useAuth()
@@ -44,7 +44,7 @@ export function NewRoom() {
   }
 
   return (
-    <div id="page-auth">
+    <div id="page-new">
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>

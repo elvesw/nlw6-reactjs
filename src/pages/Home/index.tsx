@@ -1,17 +1,17 @@
 import { useHistory } from 'react-router-dom'
 import { FormEvent, useState } from 'react';
 
-import illustrationImg from '../assets/images/illustration.svg'
-import logoImg from '../assets/images/logo.svg';
-import googleIconImg from '../assets/images/google-icon.svg';
-import logoutImg from '../assets/images/logout.svg';
+import illustrationImg from '../../assets/images/illustration.svg'
+import logoImg from '../../assets/images/logo.svg';
+import googleIconImg from '../../assets/images/google-icon.svg';
+import logoutImg from '../../assets/images/logout.svg';
 
-import { database } from '../services/firebase';
+import { database } from '../../services/firebase';
 
-import { Button } from '../components/Button';
-import { useAuth } from '../hooks/useAuth';
+import { Button } from '../../components/Button';
+import { useAuth } from '../../hooks/useAuth';
 
-import '../styles/auth.scss';
+import './styles.scss';
 
 export function Home() {
   const history = useHistory();
@@ -49,7 +49,7 @@ export function Home() {
   }
 
   return (
-    <div id="page-auth">
+    <div id="page-home">
      
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
