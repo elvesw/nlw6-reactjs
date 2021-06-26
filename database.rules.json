@@ -1,9 +1,10 @@
 {
   "rules": {
     "rooms": {
-      ".read": false,
+      ".read": true,
       ".write": "auth != null",
       "$roomId": {
+        ".indexOn": ["authorId"],
         ".read": true,
         ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)",
         "questions": {

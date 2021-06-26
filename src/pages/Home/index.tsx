@@ -4,7 +4,6 @@ import { FormEvent, useState } from 'react';
 import illustrationImg from '../../assets/images/illustration.svg'
 import logoImg from '../../assets/images/logo.svg';
 import googleIconImg from '../../assets/images/google-icon.svg';
-import logoutImg from '../../assets/images/logout.svg';
 
 import { database } from '../../services/firebase';
 
@@ -15,7 +14,7 @@ import './styles.scss';
 
 export function Home() {
   const history = useHistory();
-  const { user, signInWithGoogle,signOutGoogle } = useAuth()
+  const { user, signInWithGoogle } = useAuth()
   const [roomCode, setRoomCode] = useState('');
 
   async function handleCreateRoom() {
@@ -48,6 +47,13 @@ export function Home() {
     history.push(`/rooms/${roomCode}`);
   }
 
+  function handleNavigateToProfile() {
+    if (!user) {
+      return;
+    }
+    history.push('/me');
+  }
+
   return (
     <div id="page-home">
      
@@ -61,16 +67,12 @@ export function Home() {
           <div className="logo-content">
             <img src={logoImg} alt="Letmeask" />
             {user?.id && (
-              <>
-                <div className="avatar">
+              <div className="avatar">
+                <button className="profile" type="button"  onClick={() => handleNavigateToProfile()} >
                   <img src={user?.avatar} alt={user?.name} />
-                  <span>{user?.name}</span>
-                </div>
-              
-                <button className="logout" type="button"  onClick={() => signOutGoogle()} >
-                  <img  src={logoutImg} alt="Sair" />
                 </button>
-              </>
+                <span>{user?.name}</span>
+              </div>
             )}
           </div>
           <button onClick={handleCreateRoom} className="create-room">

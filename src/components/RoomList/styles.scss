@@ -1,0 +1,74 @@
+.room {
+  background: #fefefe;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  padding: 24px;
+
+  & + .room {
+    margin-top: 8px;
+  }
+
+
+  
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0px;
+    
+    .room-info{
+      display: flex;
+      align-items: center;
+     
+      
+      span {
+        margin-left: 8px;
+        color: #29292e;
+        font-size: 16px;
+      }
+
+      button {
+        
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        transition: filter 0.2s;
+  
+        &:hover {
+          filter: brightness(0.7);
+        }
+      }
+    }
+
+    > div {
+      display: flex;
+      gap: 16px;
+    }
+
+    button {
+      align-self: center;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.7);
+      }
+    }
+
+    a {
+      align-self: center;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.7);
+      }
+    }
+
+
+  }
+}

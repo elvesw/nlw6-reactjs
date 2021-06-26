@@ -1,8 +1,7 @@
 import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import logoImg from '../../assets/images/logo.svg';
-import logoutImg from '../../assets/images/logout.svg';
 
 import { Button } from '../../components/Button';
 import { Question } from '../../components/Question';
@@ -19,12 +18,12 @@ type RoomParams = {
 }
 
 export function Room() {
-  const { user, signInWithGoogle, signOutGoogle} = useAuth();
+  const { user, signInWithGoogle} = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
 
-  const { title, questions } = useRoom(roomId);
+  const { title, questions , isClosed} = useRoom(roomId);
 
 
   async function handleSendQuestion(event: FormEvent) {
@@ -71,12 +70,18 @@ export function Room() {
     <div id="page-room">
       <header>
         <div className="content">
-          <img src={logoImg} alt="Letmeask" />
+          <Link to={`/`}>
+            <img src={logoImg} alt="Letmeask" />
+          </Link>
           <div>
             <RoomCode code={roomId} />
-            <button className="logout" type="button" onClick={signOutGoogle}>
-              <img  src={logoutImg} alt="Sair" />
-            </button>
+
+            {user?.id && (
+              <Link to={`/me`}>
+               <img src={user?.avatar} alt={user?.name} />
+              </Link>
+            )}
+
            </div>
         </div>
       </header>
@@ -87,7 +92,9 @@ export function Room() {
           { questions.length > 0 && <span>{questions.length} pergunta(s)</span> }
         </div>
 
-        <form onSubmit={handleSendQuestion}>
+        {!isClosed ? 
+        (
+          <form onSubmit={handleSendQuestion}>
           <textarea
             placeholder="O que você quer perguntar?"
             onChange={event => setNewQuestion(event.target.value)}
@@ -101,11 +108,19 @@ export function Room() {
                 <span>{user.name}</span>
               </div>
             ) : (
-              <span>Para enviar uma pergunta, <button>faça seu login</button>.</span>
+              <span>Para enviar uma pergunta, <button onClick={signInWithGoogle}>faça seu login</button>.</span>
             ) }
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
           </div>
         </form>
+        
+        ) :
+        (
+        <div className="closed-questions">
+           <h2 >perguntas encerradas</h2>
+        </div>
+        )
+        }
 
         <div className="question-list">
           {questions.map(question => {

@@ -10,8 +10,20 @@
       justify-content: space-between;
       align-items: center;
 
-      > img {
-        max-height: 45px;
+      a {
+        align-self: center;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        transition: filter 0.2s;
+
+        > img {
+          max-height: 45px;
+        }
+  
+        &:hover {
+          filter: brightness(0.7);
+        }
       }
 
       > div {
@@ -23,12 +35,19 @@
           height: 40px;
         }
 
-        .logout{
+        a {
+          align-self: center;
           border: 0;
-          max-height: 32px;
-          background-color: transparent;
+          background: transparent;
           cursor: pointer;
+          transition: filter 0.2s;
   
+          >img {
+            width:45px;
+            height: 45px;
+            border-radius: 50%;
+          }
+    
           &:hover {
             filter: brightness(0.7);
           }

@@ -70,6 +70,15 @@
       .avatar{
         display: flex;
         flex-direction: column;
+
+        .profile{
+          border: 0;
+          background-color: transparent;
+          cursor: pointer;
+          &:hover {
+            filter: brightness(0.7);
+          }
+        }
        
         img {
           border-radius: 50%;
@@ -77,18 +86,6 @@
         span{
           padding-top: 8px;
         }
-      }
-
-      .logout{
-        border: 0;
-        max-height: 32px;
-        background-color: transparent;
-        cursor: pointer;
-
-        &:hover {
-          filter: brightness(0.7);
-        }
-        
       }
 
     }

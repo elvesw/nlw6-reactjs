@@ -39,6 +39,13 @@ export function NewRoom() {
     history.push(`/admin/rooms/${firebaseRoom.key}`)
   }
 
+  function handleNavigateToProfile() {
+    if (!user) {
+      return;
+    }
+    history.push('/me');
+  }
+
   if(!user){
     return <Loading/>
   }
@@ -55,16 +62,12 @@ export function NewRoom() {
         <div className="logo-content">
             <img src={logoImg} alt="Letmeask" />
             {user?.id && (
-              <>
                 <div className="avatar">
-                  <img src={user?.avatar} alt={user?.name} />
+                  <button className="profile" type="button"  onClick={() => handleNavigateToProfile()} >
+                    <img src={user?.avatar} alt={user?.name} />
+                  </button>
                   <span>{user?.name}</span>
                 </div>
-              
-                <button className="logout" type="button"  onClick={() => signOutGoogle()} >
-                  <img  src={logoutImg} alt="Sair" />
-                </button>
-              </>
             )}
           </div>
           <h2>Criar uma nova sala</h2>
