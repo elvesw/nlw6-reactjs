@@ -81,7 +81,8 @@ export function Profile() {
       <main>
         <div className="room-title">
           <h1>{user?.name}</h1>
-          { rooms.length > 0 && <span>{rooms.length} sala(s)</span> }
+          { rooms.length > 0 ? (<span>{rooms.length} sala(s)</span>):
+          (<span>Opps, você ainda não criou nenhuma sala</span>) }
         </div>
         <div className="room-list">
           {rooms.map(room => {
