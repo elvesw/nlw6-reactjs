@@ -42,7 +42,7 @@ export function AdminRoom() {
       endedAt: new Date(),
     })
 
-    history.push('/');
+    history.push('/me');
   }
 
   async function handleDeleteQuestion(questionId: string) {
