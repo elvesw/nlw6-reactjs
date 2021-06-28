@@ -5,9 +5,9 @@
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=NLW&message=06&color=8257E5&labelColor=000000" alt="NLW Together 06" />
   
-  <img src="https://img.shields.io/github/stars/elvesw/nlw6-reactjs?label=stars&message=MIT&color=8257E5&labelColor=000000" alt="Stars">
+  <img src="https://img.shields.io/github/stars/elvesw/nlw6-reactjs" alt="Stars">
 
-  <img  src="https://img.shields.io/static/v1?label=license&message=MIT&color=8257E5&labelColor=000000" alt="License">   
+  <img  src="https://img.shields.io/github/license/elvesw/nlw6-reactjs" alt="License">   
 </p>
 
 <h1 align="center">
@@ -16,9 +16,9 @@
 
 <br>
 
-## ✔️ Demostração online
-Hospedado Firebase Hosting, veja como ficou.
-- <a href="https://letmeask-a0347.web.app" target="_blank" > https://letmeask-a0347.web.app </a>
+## ✔️ Demonstração da aplicação
+Hospedado Firebase Hosting, veja como ficou, deixe seu _Oieee_ registrado.
+- [https://letmeask-a0347.web.app](https://letmeask-a0347.web.app/rooms/-MdFlb6GTIK7Mct1l1wI)
 
 ## 🧪 Tecnologias
 
@@ -72,4 +72,4 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 ---
 
-Valeu Rocketseat - NLW06 Together👋🏻 [Participe da comunidade!](https://discord.gg/gKUVrzrPrU)
+Valeu - NLW06 Together👋🏻 [Participe da comunidade da Rocketseat!](https://discord.gg/gKUVrzrPrU)
