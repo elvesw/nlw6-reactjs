@@ -42,12 +42,27 @@ Para iniciá-lo, siga os passos abaixo:
 # Instalar as dependências
 $ yarn
 
-# Iniciar o projeto
-$ yarn start
+# Cria um arquivo .env.local
+$ copy .env.example .env.local
 ```
-O app estará disponível no seu browser pelo endereço http://localhost:3000.
 
 Lembrando que será necessário criar uma conta no [Firebase](https://firebase.google.com/) e um projeto para disponibilizar um Realtime Database.
+Verificar as informações da apiKey do seu projeto firebase e demais informações, conforme imagens abaixo.
+
+![Configurações do projeto](.github/settings_general.png)
+
+![Configuração do SDK](.github/settings_sdk.png)
+
+E em seguida colocar as informações no arquivo .env.local
+
+![Configuração do .env.local](.github/settings_env.png)
+
+Para iniciá-lo, siga os passos abaixo:
+```bash
+# o projeto está pronto para iniciar
+$ yarn start
+```
+O app estará disponível no seu browser pelo endereço http://localhost:3000
 
 ## 💻 Projeto
 
