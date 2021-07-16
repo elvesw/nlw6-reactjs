@@ -1,0 +1,42 @@
+.room-open {
+  background: #fefefe;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  
+
+  & + .room-open {
+    margin-top: 8px;
+  }
+
+  > a {
+    text-decoration: none;
+  }
+
+  .btn-open-room {
+   
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    font-weight: 500;
+    background: #FEFEFE;
+    color: #29292e;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    cursor: pointer;
+    border: 0;
+
+    transition: filter 0.2s;
+    padding: 24px;
+
+    img {
+      margin-right: 8px;
+    }
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+}

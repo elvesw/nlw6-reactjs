@@ -4,7 +4,6 @@ import { Link, useHistory } from 'react-router-dom'
 import { Loading } from '../../../components/Loading';
 import illustrationImg from '../../../assets/images/illustration.svg'
 import logoImg from '../../../assets/images/logo.svg';
-import logoutImg from '../../../assets/images/logout.svg';
 
 import { Button } from '../../../components/Button';
 import { database } from '../../../services/firebase';
@@ -13,7 +12,7 @@ import { useAuth } from '../../../hooks/useAuth';
 import './styles.scss';
 
 export function NewRoom() {
-  const { user,signInWithGoogle,signOutGoogle } = useAuth()
+  const { user,signInWithGoogle } = useAuth()
   const history = useHistory()
   const [newRoom, setNewRoom] = useState('');
 
@@ -34,6 +33,7 @@ export function NewRoom() {
     const firebaseRoom = await roomRef.push({
       title: newRoom,
       authorId: user?.id,
+      authorAvatar: user?.avatar,
     })
 
     history.push(`/admin/rooms/${firebaseRoom.key}`)

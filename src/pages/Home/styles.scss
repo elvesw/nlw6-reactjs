@@ -2,7 +2,9 @@
   display: flex;
   align-items: stretch;
   height: 100vh;
-  
+
+
+
   aside {
     flex: 7;
 
@@ -33,6 +35,8 @@
     }
   }
 
+ 
+
   main {
     flex: 8;
 
@@ -41,6 +45,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+  }
+
+  .link-content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+   
   }
 
   .main-content {
@@ -87,9 +100,6 @@
           padding-top: 8px;
         }
       }
-
-
-
     }
 
     form {
@@ -120,6 +130,8 @@
       }
     }
   }
+
+
 
   .create-room {
     margin-top: 64px;

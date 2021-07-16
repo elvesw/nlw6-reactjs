@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import cx from 'classnames';
 import settingsImg from '../../assets/images/settings.svg';
 import answerCloseImg from '../../assets/images/answer-close.svg';
 import answerEyeImg from '../../assets/images/answer-eye.svg';
@@ -8,7 +7,7 @@ import unlockImg from '../../assets/images/unlock.svg';
 import deleteImg from '../../assets/images/delete.svg';
 
 import './styles.scss';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { database } from '../../services/firebase';
 
 type RoomProps = {
@@ -19,7 +18,7 @@ type RoomProps = {
   children?: ReactNode;
 }
 
-export function RoomList({
+export function RoomProfileList({
   id,
   authorId,
   title = '',

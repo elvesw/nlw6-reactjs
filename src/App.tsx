@@ -5,6 +5,7 @@ import { Profile } from "./pages/Profile";
 import { Room } from './pages/Room';
 import { NewRoom } from "./pages/Room/New";
 import { AdminRoom } from './pages/Room/Admin';
+import { AllRoom } from './pages/Room/All';
 
 import { AuthContextProvider } from './contexts/AuthContext'
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" exact component={Home} />
 
           <Route path="/rooms/new" component={NewRoom} />
+          <Route path="/rooms/all" exact component={AllRoom} />
           <Route path="/rooms/:id" component={Room} />
 
           <Route path="/me" component={Profile} />

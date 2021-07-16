@@ -1,9 +1,10 @@
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { FormEvent, useState } from 'react';
 
 import illustrationImg from '../../assets/images/illustration.svg'
 import logoImg from '../../assets/images/logo.svg';
 import googleIconImg from '../../assets/images/google-icon.svg';
+import listImg from '../../assets/images/list.svg';
 
 import { database } from '../../services/firebase';
 
@@ -56,13 +57,17 @@ export function Home() {
 
   return (
     <div id="page-home">
-     
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
       </aside>
       <main>
+      <div className="link-content">
+        <Link to={`/rooms/all`}>
+          <img src={listImg} alt="Salas abertas" />
+        </Link>
+      </div>
         <div className="main-content">
           <div className="logo-content">
             <img src={logoImg} alt="Letmeask" />
@@ -71,7 +76,6 @@ export function Home() {
                 <button className="profile" type="button"  onClick={() => handleNavigateToProfile()} >
                   <img src={user?.avatar} alt={user?.name} />
                 </button>
-                <span>{user?.name}</span>
               </div>
             )}
           </div>

@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import logoImg from '../../assets/images/logo.svg';
+import logoImg from '../../../assets/images/logo.svg';
 
-import { Button } from '../../components/Button';
-import { database } from '../../services/firebase';
-import { useAuth } from '../../hooks/useAuth';
+import { database } from '../../../services/firebase';
 
 import './styles.scss';
-import { RoomProfileList } from '../../components/RoomProfileList';
+import { RoomOpenList } from '../../../components/RoomOpenList';
 
 type FirebaseRooms = Record<string, {
   authorId: string;
@@ -23,16 +21,14 @@ type RoomType = {
   endedAt: string;
 }
 
-export function Profile() {
-  const { user,signOutGoogle } = useAuth()
+export function AllRoom() {
   const [rooms, setRooms] = useState<RoomType[]>([]);
 
   useEffect(() => {
-    if(!user) return;
-
+   
     const roomRef = database.ref(`rooms`);
 
-    roomRef.orderByChild('authorId').equalTo(user.id).on('value', room => {
+    roomRef.on('value', room => {
       const databaseRoom = room.val();
      const firebaseRooms: FirebaseRooms = databaseRoom ?? {};
      
@@ -51,13 +47,7 @@ export function Profile() {
     return () => {
       roomRef.off('value');
     }
-  }, [rooms, user]);
-
-  async function handleSignOut() {
-    if (window.confirm('Tem certeza que você deseja deslogar?')) {
-      signOutGoogle();
-    }
-  }
+  }, [rooms]);
 
 
   return (
@@ -67,36 +57,25 @@ export function Profile() {
           <Link to={`/`}>
             <img src={logoImg} alt="Letmeask" />
           </Link>
-          <div>
-            <img src={user?.avatar} alt={user?.name} />
-            <Button isOutlined onClick={handleSignOut}>sair de todas as salas</Button>
-           </div>
         </div>
       </header>
 
       <main>
         <div className="room-title">
-          <h1>{user?.name}</h1>
+          <h1>Salas abertas e fechadas</h1>
           { rooms.length > 0 ? (<span>{rooms.length} sala(s)</span>):
           (<span>Opps, você ainda não criou nenhuma sala</span>) }
         </div>
         <div className="room-list">
           {rooms.map(room => {
             return (
-              <RoomProfileList
+              <RoomOpenList
                 id={room.id}
                 title={room.title}
                 authorId={room.authorId}
                 endedAt={room.endedAt}
               >
-               
-                <button
-                  type="button"
-                  onClick={() => {}}
-                >
-                 {/*  <img src={deleteImg} alt="Remover pergunta" /> */}
-                </button>
-              </RoomProfileList>
+              </RoomOpenList>
             );
           })}
         </div>
