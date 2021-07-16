@@ -4,10 +4,25 @@
 
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=NLW&message=06&color=8257E5&labelColor=000000" alt="NLW Together 06" />
+
+  <a href="https://www.linkedin.com/in/elves/">
+    <img alt="by Elves" src="https://img.shields.io/badge/by-Elves-%2304D361">
+  </a>
   
+   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/elvesw/nlw6-reactjs?color=%2304D361">
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/elvesw/nlw6-reactjs">
+	
+
+
+  <a href="https://github.com/elvesw/nlw6-reactjs/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/elvesw/nlw6-reactjs">
+  </a>
+
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen" alt="License">
+
   <img src="https://img.shields.io/github/stars/elvesw/nlw6-reactjs" alt="Stars">
 
-  <img  src="https://img.shields.io/github/license/elvesw/nlw6-reactjs" alt="License">   
 </p>
 
 <h1 align="center">
