@@ -3,12 +3,13 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=NLW&message=06&color=8257E5&labelColor=000000" alt="NLW Together 06" />
+
+  <img src="https://img.shields.io/static/v1?label=NLW&message=06&color=8257E5&labelColor=505050" alt="NLW Together 06" />
 
   <a href="https://www.linkedin.com/in/elves/">
-    <img alt="by Elves" src="https://img.shields.io/badge/by-Elves-%2304D361">
+    <img alt="LinkedIn" src="  https://img.shields.io/badge/Elves-0077B5?style=flag&for-the-badge&logo=linkedin&logoColor=white">
   </a>
-  
+
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/elvesw/nlw6-reactjs.svg">
 
    <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/elvesw/nlw6-reactjs?color=%2304D361">
@@ -33,8 +34,12 @@
 <br>
 
 ## ✅ Features
+- [x] Autenticação com conta Google
+- [x] Página com sala exclusiva para perguntas da sua audiência
 - [x] Página de perfil com todas salas criadas pelo usuário
-- [x] Página com todas as salas, abertas e fechadas para perguntas
+- [x] Página com todas as salas, abertas para perguntar e fechadas para rever as perguntas
+- [ ] Layout responsivo
+- [ ] Tema Dark e Light
 
 
 ## ✔️ Demonstração da aplicação
