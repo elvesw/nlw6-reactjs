@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/static/v1?label=NLW&message=06&color=8257E5&labelColor=505050" alt="NLW Together 06" />
 
   <a href="https://www.linkedin.com/in/elves/">
-    <img alt="LinkedIn" src="  https://img.shields.io/badge/Elves-0077B5?style=flag&for-the-badge&logo=linkedin&logoColor=white">
+    <img alt="LinkedIn" src="https://img.shields.io/badge/Elves-0077B5?style=flag&for-the-badge&logo=linkedin&logoColor=white">
   </a>
 
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/elvesw/nlw6-reactjs.svg">
