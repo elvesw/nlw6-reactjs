@@ -78,7 +78,7 @@ export function Room() {
 
             {user?.id && (
               <Link to={`/me`}>
-               <img src={user?.avatar} alt={user?.name} />
+               <img src={user?.avatar} alt={user?.name} referrerPolicy="no-referrer"/>
               </Link>
             )}
 
@@ -104,7 +104,7 @@ export function Room() {
           <div className="form-footer">
             { user ? (
               <div className="user-info">
-                <img src={user.avatar} alt={user.name} />
+                <img src={user.avatar} alt={user.name} referrerPolicy="no-referrer"/>
                 <span>{user.name}</span>
               </div>
             ) : (

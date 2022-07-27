@@ -68,7 +68,7 @@ export function Profile() {
             <img src={logoImg} alt="Letmeask" />
           </Link>
           <div>
-            <img src={user?.avatar} alt={user?.name} />
+            <img src={user?.avatar} alt={user?.name} referrerPolicy="no-referrer"/>
             <Button isOutlined onClick={handleSignOut}>sair de todas as salas</Button>
            </div>
         </div>

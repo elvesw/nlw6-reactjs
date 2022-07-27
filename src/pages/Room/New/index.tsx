@@ -64,7 +64,7 @@ export function NewRoom() {
             {user?.id && (
                 <div className="avatar">
                   <button className="profile" type="button"  onClick={() => handleNavigateToProfile()} >
-                    <img src={user?.avatar} alt={user?.name} />
+                    <img src={user?.avatar} alt={user?.name} referrerPolicy="no-referrer"/>
                   </button>
                   <span>{user?.name}</span>
                 </div>
